@@ -160,14 +160,24 @@ const Dashboard = () => {
                   src={el.image}
                   width={"400px"}
                   height={"350px"}
-                  ml={"150px"}
+                  ml={"140px"}
                   marginBottom={"20px"}
                 />
+               
+               <div style={{
+                    display:"flex",
+                    width:"100px",
+                    marginTop:"10px"
+                  }}>
+
+                <p style={{
+                    fontSize:"18px"
+                  }}>Add to Cart</p>
                 <p
                   style={{
                     cursor: "pointer",
                     fontSize: "30px",
-                    marginLeft: "70px",
+                  
                   }}
                   onClick={() => {
                     addtoCart(el);
@@ -179,9 +189,10 @@ const Dashboard = () => {
                       position: "top",
                     });
                   }}
-                >
-                  <BsFillHeartFill />
+                  >
+                 <BsFillHeartFill />
                 </p>
+                  </div>
               </div>
 
               <div style={{display:"flex",gap:"75px"}}>

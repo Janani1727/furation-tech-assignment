@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   const handleDelete = (_id) => {
     dispatch(deleteMovies(_id));
-    // window.location.reload(true);
+    window.location.reload(true);
   };
 
   // ----------------------------------------Update data----------------------------------------//
@@ -70,6 +70,7 @@ const Dashboard = () => {
 
   const HandleEdit = (id) => {
     dispatch(updateMovies(edit, id));
+    window.location.reload(true);
   };
 
   const [limit, setLimit] = useState(2);

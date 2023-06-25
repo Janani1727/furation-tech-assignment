@@ -2,6 +2,7 @@ import React from "react";
 import AdminNavbar from "../components/adminNavbar";
 import { Box, Image, Grid, Text,Button } from "@chakra-ui/react";
 import { RiDislikeFill } from "react-icons/ri";
+import { useToast } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -15,7 +16,7 @@ import {
 
 
 const Cart = () => {
-
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   let cartData = JSON.parse(localStorage.getItem("cart")) || [];
@@ -28,8 +29,12 @@ const Cart = () => {
 
     localStorage.setItem("cart", JSON.stringify(deldata));
 
-    window.location.reload();
+   Loadit()
   };
+
+  function Loadit() {
+    window.location.reload();
+  }
 
   let totalPrice = 0;
 
@@ -124,7 +129,18 @@ const Cart = () => {
                     fontSize: "30px",
                     marginLeft: "50px",
                   }}
-                  onClick={() => removeFromCart(el.id)}
+                 
+                  
+                  onClick={() => {
+                    removeFromCart(el.id);
+                    toast({
+                      title: "book removed from cart",
+                      status: "success",
+                      duration: 9000,
+                      isClosable: true,
+                      position: "top",
+                    });
+                  }}
                 >
                   <RiDislikeFill />
                 </p>

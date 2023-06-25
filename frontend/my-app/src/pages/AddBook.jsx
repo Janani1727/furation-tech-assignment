@@ -41,6 +41,7 @@ const AddBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postMovies(data));
+    window.location.reload(true);
   };
 
 

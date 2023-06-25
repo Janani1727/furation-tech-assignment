@@ -56,6 +56,7 @@ export const deleteMovies=(_id) => {
     .delete(`https://weak-blue-capybara-tie.cyclic.app/delete/${_id}`)
     .then(() => {
       dispatch(DeleteMovieAction());
+      
      
     })
     .catch((err) => {
@@ -77,7 +78,7 @@ export const UpdateMovieAction = (updatemovie) => {
 
 
 export const updateMovies=(updatemovie,id) => {
-  // console.log('updatemovie',updatemovie)
+  console.log('updatemovie',updatemovie)
   return function (dispatch){
     axios
     .patch(`https://weak-blue-capybara-tie.cyclic.app/update/${id}`,updatemovie)

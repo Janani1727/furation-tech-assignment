@@ -14,7 +14,7 @@ const AllRoutes = () => {
     
      <Route path='/addbook' element={<AddBook/>}></Route>
      
-     <Route path='/dashboard' element={<Dashboard/>}></Route>
+     <Route path='/' element={<Dashboard/>}></Route>
 
      <Route path='/cart' element={<Cart/>}></Route>
 

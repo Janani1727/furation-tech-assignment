@@ -13,7 +13,7 @@ const AdminNavbar = () => {
         </Link>
 
   
-        <Link to={"/dashboard"}>
+        <Link to={"/"}>
         <h1>Dashboard</h1>
         </Link>
 

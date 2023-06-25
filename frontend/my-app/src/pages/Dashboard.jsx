@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   const handleDelete = (_id) => {
     dispatch(deleteMovies(_id));
-    window.location.reload(true);
+    // window.location.reload(true);
   };
 
   // ----------------------------------------Update data----------------------------------------//
@@ -68,9 +68,9 @@ const Dashboard = () => {
     setEdit({ ...edit, [name]: value });
   };
 
-  const HandleEdit = (id) => {
-    dispatch(updateMovies(edit, id));
-    window.location.reload(true);
+  const HandleEdit = (_id) => {
+    dispatch(updateMovies(edit, _id));
+    // window.location.reload(true);
   };
 
   const [limit, setLimit] = useState(2);
@@ -142,23 +142,26 @@ const Dashboard = () => {
           <option value="Action">action</option>
         </select>
       </Box>
-      <Grid width={"1500px"} templateColumns="repeat(2, 1fr)">
+      <Grid width={"1500px" }  templateColumns="repeat(2, 1fr)">
         {movies.map((el) => {
           return (
             <Box 
+            boxShadow={"lg"}
             borderRadius={"10px"}
             margin={"auto"}
               key={el._id}
               width={"90%"}
+              height={"100%"}
               border={"1px solid black"}
               textAlign={"left"}
             >
               <div style={{ display: "flex" }}>
                 <Image
                   src={el.image}
-                  width={"300px"}
-                  height={"300px"}
+                  width={"400px"}
+                  height={"350px"}
                   ml={"150px"}
+                  marginBottom={"20px"}
                 />
                 <p
                   style={{
@@ -171,7 +174,7 @@ const Dashboard = () => {
                     toast({
                       title: "added to cart",
                       status: "success",
-                      duration: 9000,
+                      duration: 1000,
                       isClosable: true,
                       position: "top",
                     });
@@ -180,23 +183,55 @@ const Dashboard = () => {
                   <BsFillHeartFill />
                 </p>
               </div>
-              <p> Name : {el.name}</p>
-              <p> Author: {el.author}</p>
-              <p> Year of Release: {el.year}</p>
-              <p> Price: {el.price}</p>
-              <p> Genre: {el.genre}</p>
-              <p> Rating: {el.rating}</p>
-              <p> Description of Book{el.description}</p>
-              <div style={{ display: "flex", gap: "30px" }}>
+
+              <div style={{display:"flex",gap:"75px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}>Name : </p>
+              <p style={{textAlign:"center"}}>{el.name}</p>
+              </div>
+              
+              <div  style={{display:"flex",gap:"68px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}> Author : </p>
+              <p style={{textAlign:"center"}}>{el.author}</p>
+              </div>
+
+              <div  style={{display:"flex",gap:"10px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}>Year of Release : </p>
+              <p style={{textAlign:"center"}}>{el.year}</p>
+              </div>
+
+              <div  style={{display:"flex",gap:"80px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}>Price :</p>
+              <p style={{textAlign:"center"}}> {el.price}</p>
+              </div>
+
+              <div  style={{display:"flex",gap:"70px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}>Genre : </p>
+              <p style={{textAlign:"center"}}>{el.genre}</p>
+              </div>
+
+              <div  style={{display:"flex",gap:"70px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}> Rating  :</p>
+              <p style={{textAlign:"center"}}> {el.rating}</p>
+              </div>
+
+
+              <div  style={{display:"flex",gap:"35px" , marginBottom:"20px"}}>
+              <p style={{fontSize:"20px", marginLeft:"20px"}}>Description of Book : </p>
+              <p style={{textAlign:"left"}}>{el.description}</p>
+              </div>
+
+
+              <div style={{ display: "flex", gap: "30px" , marginLeft:"150px" }}>
                 <p
                   style={{
-                    border: "1px solid black",
+                    border: "0px solid black",
                     cursor: "pointer",
                     fontSize: "30px",
+                    color:"blue"
                   }}
                   onClick={() => hanldeClickEidt(el)}
                 >
-                  <FaEdit />
+                <FaEdit /> 
                 </p>
 
                 <Modal isOpen={isOpen} onClose={onClose}>
@@ -308,20 +343,22 @@ const Dashboard = () => {
 
                 <p
                   style={{
-                    border: "1px solid black",
+                    border: "0px solid black",
                     cursor: "pointer",
                     fontSize: "30px",
+                    color:"red",
+                    marginLeft:"50px"
                   }}
                   onClick={() => handleDelete(el._id)}
                 >
-                  <MdDelete />
+                 <MdDelete />
                 </p>
               </div>
             </Box>
           );
         })}
       </Grid>
-      {/* </Box> */}
+    
 
       <div
         style={{

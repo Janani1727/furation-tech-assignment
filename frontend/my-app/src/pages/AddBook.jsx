@@ -41,7 +41,7 @@ const AddBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postMovies(data));
-    window.location.reload(true);
+    // window.location.reload(true);
   };
 
 
@@ -53,8 +53,8 @@ const AddBook = () => {
     <br />
 
       <form style={{ border:"1px solid black", padding:"10px", width:"50%",margin:"auto" ,
-    //  boxShadow:
-  boxShadow:" rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;"
+    
+     boxShadow:" rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
     }}>
       <Input
           width={"90%"}

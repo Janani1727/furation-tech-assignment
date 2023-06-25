@@ -4,15 +4,16 @@ import {
     postMovies,
   
   } from "../redux/action";
-  import { useDispatch, useSelector } from "react-redux";
-  import { useState, useEffect } from "react";
-  import { Button, Input } from "@chakra-ui/react";
-  import { useParams } from "react-router-dom";
+  import { useDispatch } from "react-redux";
+  import { useState} from "react";
+  import { Button, Input, Text } from "@chakra-ui/react";
+  import { useToast } from "@chakra-ui/react";
   import AdminNavbar from "../components/adminNavbar";
 
 const AddBook = () => {
 
     const dispatch = useDispatch();
+    const toast = useToast();
   // ---------------------------------------- adding data----------------------------------------//
   const init = {
     name: "",
@@ -46,10 +47,16 @@ const AddBook = () => {
   return (
     <>
     <AdminNavbar/>
-    <h1>add Movie</h1>
-      <form>
+
+    <Text  fontSize={"28px"} >Add Book</Text>
+    <br />
+
+      <form style={{ border:"1px solid black", padding:"10px", width:"50%",margin:"auto" ,
+    //  boxShadow:
+  boxShadow:" rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;"
+    }}>
       <Input
-          width={"40%"}
+          width={"90%"}
           border={"1px solid black"}
           type="text"
           placeholder="image"
@@ -58,8 +65,11 @@ const AddBook = () => {
           onChange={handleInput}
         />
         <br />
+       
+
         <Input
-          width={"40%"}
+          width={"90%"}
+          marginTop={"10px"}
           border={"1px solid black"}
           type="text"
           placeholder="name "
@@ -69,7 +79,8 @@ const AddBook = () => {
         />
         <br />
         <Input
-          width={"40%"}
+        marginTop={"10px"}
+          width={"90%"}
           border={"1px solid black"}
           type="text"
           placeholder=" author"
@@ -79,7 +90,8 @@ const AddBook = () => {
         />
         <br />
         <Input
-          width={"40%"}
+          width={"90%"}
+          marginTop={"10px"}
           border={"1px solid black"}
           type="text"
           placeholder="year"
@@ -89,7 +101,8 @@ const AddBook = () => {
         />
         <br />
         <Input
-          width={"40%"}
+          width={"90%"}
+          marginTop={"10px"}
           border={"1px solid black"}
           type="text"
           placeholder="rating"
@@ -99,7 +112,8 @@ const AddBook = () => {
         />
         <br />
         <Input
-          width={"40%"}
+          width={"90%"}
+          marginTop={"10px"}
           border={"1px solid black"}
           type="text"
           placeholder="price"
@@ -109,7 +123,9 @@ const AddBook = () => {
         />
         <br />
         <Input
-          width={"40%"}
+        marginTop={"10px"}
+        marginBottom={"10px"}
+          width={"90%"}
           border={"1px solid black"}
           type="text"
           placeholder="description"
@@ -119,7 +135,8 @@ const AddBook = () => {
         />
         <br />
         <select
-          style={{ width: "40%", border: "1px solid black", height: "40px" }}
+      
+          style={{ width: "90%", border: "1px solid black", height: "40px" }}
           name="genre"
           id="selecttag"
           value={genre}
@@ -131,7 +148,13 @@ const AddBook = () => {
           <option value="Romance">Romance</option>
         </select>
         <br />
-        <Button onClick={handleSubmit}>Add Movie</Button>
+        <Button width={"180px"} backgroundColor={"blue.500"} color={"white"} marginTop={"10px"} 
+        onClick={
+          handleSubmit
+          
+        }
+        >
+          Add Book</Button>
       </form>
     </>
   )

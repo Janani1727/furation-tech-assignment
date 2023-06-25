@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const AdminNavbar = () => {
   return (
     <>
-    <Box  width={"100%"} backgroundColor={"blue.500"} color={"white"} height={"50px"} display={"flex"}  justifyContent={"space-evenly"} fontSize={"22px"}>
+    <Box   padding={"15px"} marginBottom={"30px"} width={"100%"} backgroundColor={"blue.500"} color={"white"} height={"70px"} display={"flex"}  justifyContent={"space-evenly"} fontSize={"22px"}>
       
         
         <Link to={"/addbook"}>

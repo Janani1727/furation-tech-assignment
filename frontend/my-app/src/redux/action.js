@@ -29,15 +29,15 @@ export const GetMovieAction = (payload) => {
 };
 
 export const getMovies = (query,limit,sort,category) =>(dispatch) =>  {
-  console.log(category)
+  
   axios
     .get(`https://weak-blue-capybara-tie.cyclic.app/get?name=${query}&limit=${limit}&sortby=price&sortBy=${sort}&genre=${category}`)
     .then((res) => {
       dispatch(GetMovieAction(res.data.slice(limit-5,limit)));
-       console.log(res.data);
+      //  console.log(res.data);
     })
     .catch((err) => {
-      console.log(err);
+       console.log(err);
     });
 };
 

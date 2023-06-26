@@ -57,54 +57,14 @@ const Cart = () => {
     <>
       <AdminNavbar />
 
-      <div
-        style={{
-          display: "flex",
-          gap: "100px",
-          marginBottom: "30px",
-          marginLeft: "400px",
-        }}
-      >
-        <Text padding={"10px"} border={"1px solid black"} fontSize={"22px"}>
+     
+      
+        <Text padding={"10px"} border={"0px solid black"} marginBottom={"30px"} fontSize={"22px"}>
           Total number of books in cart : {cartData.length}{" "}
         </Text>
 
-        <Text padding={"10px"} border={"1px solid black"} fontSize={"22px"}>
-          {" "}
-          Total amount : Rs.{totalPrice} /-
-        </Text>
+       
 
-
-        <Button border={"1px solid black"} backgroundColor={"white"}
-         onClick={onOpen}
-      
-        >
-          CheckOut to payment
-        </Button>
-      </div>
-
-      <Modal isOpen={isOpen} onClose={onClose} >
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>payment process</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody padding={"10px"}>
-                      
-                     <p> Book Name: {name}</p>
-                    <br />
-                     <p> Total Price: Rs. {totalPrice}</p>
-
-                    </ModalBody>
-
-                    <Button onClick={ 
-                      payment
-                  
-                      } marginBottom={"20px"} marginLeft={"120px"} width={"200px"} backgroundColor={"blue.500"}>
-                        continue payment
-                    </Button>
-
-                  </ModalContent>
-                </Modal>
 
       <Grid templateColumns="repeat(2, 1fr)" gap={"30px"}>
 

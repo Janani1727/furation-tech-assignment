@@ -28,6 +28,20 @@ export const GetMovieAction = (payload) => {
   return { type: GET_MOVIES , payload};
 };
 
+// export const getMovies = (category) =>(dispatch) =>  {
+  
+//   axios
+//     .get(`https://weak-blue-capybara-tie.cyclic.app/get?genre=${category}`)
+//     .then((res) => {
+//       dispatch(GetMovieAction(res.data));
+//        console.log(res.data);
+//     })
+//     .catch((err) => {
+//        console.log(err);
+//     });
+// };
+
+
 export const getMovies = (query,limit,sort,category) =>(dispatch) =>  {
   
   axios

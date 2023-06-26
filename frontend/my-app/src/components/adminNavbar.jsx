@@ -22,6 +22,10 @@ const AdminNavbar = () => {
         <h1>Cart</h1>
         </Link>
 
+    
+        <Link to={"/checkout"}>
+        <h1>Checkout</h1>
+        </Link>
 
        
     </Box>

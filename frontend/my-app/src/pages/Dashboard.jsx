@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Button, Input, Box } from "@chakra-ui/react";
 
+
 import {
   Modal,
   ModalOverlay,
@@ -19,6 +20,8 @@ import {
   Grid,
   useDisclosure,
 } from "@chakra-ui/react";
+
+import axios from "axios";
 
 import AdminNavbar from "../components/adminNavbar";
 
@@ -82,8 +85,8 @@ const Dashboard = () => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    dispatch(getMovies(query, limit, sort, category));
-  }, [query, limit, sort, category]);
+    dispatch(getMovies( query, limit,sort,category));
+  }, [  query, limit,sort,category]);
 
   const handleSort = (e) => {
     setSort(e.target.value);
@@ -95,9 +98,16 @@ const Dashboard = () => {
   };
 
   const search = (e) => {
+    console.log(e.target.value);
     setQuery(e.target.value);
+    // handleSearch(e.target.value);
+    
   };
 
+  // const handleSearch = (query) => {
+  //   axios.get(`https://weak-blue-capybara-tie.cyclic.app/get?name=${query}`)
+  // }
+  
   const addtoCart = (el) => {
     let cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -110,15 +120,33 @@ const Dashboard = () => {
     <>
       <AdminNavbar />
 
-      <Box display={"flex"} gap={"10px"}>
+      <Box display={"flex"} gap={"10px"} marginTop={"10px"}>
         
-        <Button border={"1px solid black"} backgroundColor={"white"} value={"asc"} onClick={handleSort} marginLeft={"300px"}>
-          Low to High
-        </Button>
+        <button 
+         
+         style={{
+          border:"1px solid black",
+          color:"black",
+          marginLeft:"200px",
+          width:"220px",
+          height:"40px",
 
-        <Button border={"1px solid black"} backgroundColor={"white"} value={"desc"} onClick={handleSort}>
+         }}
+         
+         value="asc" onClick={handleSort} marginLeft={"300px"}>
+          Low to High
+        </button>
+
+        <button   style={{
+          border:"1px solid black",
+          color:"black",
+          
+          width:"220px",
+          height:"40px",
+
+         }}value="desc" onClick={handleSort}>
           High to Low
-        </Button>
+        </button>
 
         <input
           type="text"
@@ -126,16 +154,18 @@ const Dashboard = () => {
             border: "1px solid black",
             borderRadius: "10px",
             width: "400px",
-            height: "40px",
+            height: "30px",
+            marginTop:"-10px",
             marginBottom: "30px",
             marginLeft: "10px",
           }}
-          placeholder="search by name"
+          placeholder="search by Entering full name"
           onInput={search}
         />
-
-        <select style={{border:"1px solid black",width:"200px", height:"40px",borderRadius:"10px"}} name="" id="" onChange={handleFilter}>
-          <option value="">filter by genre</option>
+         <p>filter by genre</p>
+        <select style={{border:"1px solid black",width:"200px", marginTop:"-10px",color:"black", height:"40px",borderRadius:"10px"}}  onChange={handleFilter}>
+         
+          
           <option value="Comedy">comedy</option>
           <option value="Horror">horror</option>
           <option value="Romance">romance</option>
@@ -143,6 +173,7 @@ const Dashboard = () => {
         </select>
       </Box>
       <Grid width={"1500px" }  templateColumns="repeat(2, 1fr)">
+
         {movies.map((el) => {
           return (
             <Box 
